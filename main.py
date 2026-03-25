@@ -5,26 +5,26 @@ k,T,C,L = symbols('k T C L')
 Am_lst=[]
 C_ost_lst=[]
 print ('Индивидуальное задание 5 вариант')
-C_ost = 20000
+C_ost = 40000
 Am_lst=[]
 C_ost_lst=[]
-for i in range (6):  # Исправлено: 10 лет
+for i in range (10):  # Исправлено: 10 лет
   Am=(C-L)/T  
-  C_ost -= Am.subs({C:20000, T:6, L:0})
-  Am_lst.append(round(Am.subs({C:20000, T:6, L:0}),2))
+  C_ost -= Am.subs({C:40000, T:10, L:0})
+  Am_lst.append(round(Am.subs({C:40000, T:10, L:0}),2))
   C_ost_lst.append(round(C_ost,2))
 print('Am_lst: ', Am_lst)
 print('C_ost_lst: ',C_ost_lst)
 #2-й способ
 Aj=0
-C_ost=20000
+C_ost=40000
 Am_lst_2=[]
 C_ost_lst_2=[]
-for i in range (6):  # Исправлено: 10 лет
+for i in range (10):  # Исправлено: 10 лет
   Am= k*1/T*(C-Aj)
-  C_ost-= Am.subs({C:20000, T:6, k:2})
-  Am_lst_2.append(round(Am.subs({C:20000, T:6, k:2}),2))
-  Aj+=Am.subs({C:20000, T:6, k:2})
+  C_ost-= Am.subs({C:40000, T:10, k:2})
+  Am_lst_2.append(round(Am.subs({C:40000, T:10, k:2}),2))
+  Aj+=Am.subs({C:40000, T:10, k:2})
   C_ost_lst_2.append(round(C_ost,2))
 print ('Am_lst_2: ', Am_lst_2)
 print ('C_ost_lst_2: ',C_ost_lst_2)
@@ -49,8 +49,8 @@ plt.plot(tframe2['Y'],tframe2['C_ost_lst_2'],label='Am_lst_2')
 plt.savefig('chart8.png')
 #Круговая диаграмма по 1 способу
 vals=Am_lst
-labels=[str(x) for x in range(1,7)]  # Исправлено: 10 элементов для 10 лет
-explode = tuple([0.1] * 6)  # Исправлено: 10 элементов (0.1 для каждого сектора)
+labels=[str(x) for x in range(1,11)]  # Исправлено: 10 элементов для 10 лет
+explode = tuple([0.1] * 10)  # Исправлено: 10 элементов (0.1 для каждого сектора)
 fig,ax=plt.subplots()
 ax.pie(vals,explode=explode,labels=labels,autopct='%1.1f%%',shadow=True,wedgeprops={'lw':1,'ls':'--','edgecolor': "k"},rotatelabels=True)
 ax.axis("equal")
@@ -58,8 +58,8 @@ plt.savefig('chart9.png')
 
 #Круговая диаграмма по 2 способу
 vals=Am_lst_2
-labels=[str(x) for x in range(1,7)]  # Исправлено: 10 элементов для 10 лет
-explode = tuple([0.1] * 6)  # Исправлено: 10 элементов (0.1 для каждого сектора)
+labels=[str(x) for x in range(1,11)]  # Исправлено: 10 элементов для 10 лет
+explode = tuple([0.1] * 10)  # Исправлено: 10 элементов (0.1 для каждого сектора)
 fig,ax=plt.subplots()
 ax.pie(vals,explode=explode,labels=labels,autopct='%1.1f%%',shadow=True,wedgeprops={'lw':1,'ls':'--','edgecolor': "k"},rotatelabels=True)
 ax.axis("equal")
